@@ -12,12 +12,21 @@
     }
     video {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 20px;
     }
   </style>
-  <video width="640" height="360" autoplay muted playsinline>
+  <video id="videoEl" autoplay muted playsinline>
     <source src="video.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <script>
+      window.addEventListener("load", function() {
+        const video = document.getElementById("videoEl");
+        video.play().catch(error => {
+          console.log("Autoplay blocked by browser:", error);
+        });
+      });
+    </script>
+  
 </body>
 </html>
